@@ -1,3 +1,5 @@
+import CartWidget from './CartWidget'
+
 function Nav() {
     return (
         <header>
@@ -22,6 +24,9 @@ function Nav() {
                                 <a class="nav-link text-light" href="#">Nuestras sucursales</a>
                             </li>
                         </ul>
+                    </div>
+                    <div>
+                        <CartWidget></CartWidget>
                     </div>
                 </div>
             </nav>
