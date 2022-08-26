@@ -1,9 +1,13 @@
 import './ItemListContainer.css'
+import {ItemCount} from './ItemCount'
 
 function ItemListContainer (props){
     const {greeting} = props
     return (
-        <h1>{greeting}</h1>
+        <div>
+            <h1>{greeting}</h1>
+            <ItemCount stock={7} initial={1}></ItemCount>
+        </div>
     )
 }
 
