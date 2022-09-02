@@ -1,0 +1,22 @@
+.itemDetail{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+}
+
+.detailText{
+    margin-left: 20px;
+}
+
+.detailTitle{
+    font-size: 40px;
+}
+
+.detailDescription{
+    font-size: 24px;
+}
+
+.detailPrice{
+    color: green;
+    font-size: 24px;
+}
