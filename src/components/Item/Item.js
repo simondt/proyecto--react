@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import {ItemCount} from '../ItemCount/ItemCount'
 import './Item.css'
 import placeholder from './placeholder.jpg'
+import {Link} from 'react-router-dom'
 
 export const Item = (item) =>{
     const [producto, setProducto] = useState({imgUrl: placeholder, titulo: <span class="placeholder col-5"></span>, precio: <span class="placeholder col-2"></span>}) // guarda un placeholder como estado inicial
@@ -31,9 +32,9 @@ export const Item = (item) =>{
 
     return(
         <div class="card" >
-            <img src={producto.imgUrl} class="card-img-top" alt="..."></img>
+            <Link to={`/item/${producto.id}`}><img src={producto.imgUrl} class="card-img-top" alt="..."></img></Link>
             <div class="card-body">
-                <h5 class="card-title placeholder-glow">{producto.titulo}</h5>
+                <Link to={`/item/${producto.id}`}><h5 class="card-title placeholder-glow">{producto.titulo}</h5></Link>
                 <p class="card-text placeholder-glow">${producto.precio}</p>
                 <ItemCount stock={producto.stock} initial={1} />
             </div>

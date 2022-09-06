@@ -30,6 +30,7 @@ export const ItemDetail = (item) =>{
 
     return(
         <div class="itemDetail">
+            {        console.log(item.producto)}
             <div><img src={producto.imgUrl} class="card-img-top" alt="..."></img></div>
             <div class="detailText">
                 <h5 class="card-title detailTitle">{producto.titulo}</h5>
