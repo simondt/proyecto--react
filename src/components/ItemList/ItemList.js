@@ -6,7 +6,7 @@ export const ItemList = (items) => {
             {items.lista.map((item)=>{ 
                 return(
                     <li className='game'>
-                        <Item producto={item}></Item>
+                        <Item producto={item} />
                     </li>
                 )
             })

@@ -35,7 +35,7 @@ export const Item = (item) =>{
             <div class="card-body">
                 <h5 class="card-title placeholder-glow">{producto.titulo}</h5>
                 <p class="card-text placeholder-glow">${producto.precio}</p>
-                <ItemCount stock={producto.stock} initial={1}></ItemCount>
+                <ItemCount stock={producto.stock} initial={1} />
             </div>
         </div>
     ) // renderiza la card del item

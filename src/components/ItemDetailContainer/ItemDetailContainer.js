@@ -5,7 +5,7 @@ export const ItemDetailContainer = (item) => {
     return (
         <div class="card itemDetailContainer">
             <div class="card-body">
-                <ItemDetail producto = {item.item}></ItemDetail>
+                <ItemDetail producto = {item.item} />
             </div>
         </div >
     )

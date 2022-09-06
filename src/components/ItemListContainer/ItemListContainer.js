@@ -12,8 +12,8 @@ function ItemListContainer (props){
     return (
         <div>
             <h1>{greeting}</h1>
-            <ItemList lista = {listaItems}></ItemList>
-            <ItemDetailContainer item = {item1}></ItemDetailContainer> 
+            <ItemList lista = {listaItems} />
+            <ItemDetailContainer item = {item1} />
         </div>
     )
 }
