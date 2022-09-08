@@ -6,7 +6,6 @@ import {listaItems} from '../DataBase/DataBase'
 export const ItemDetailContainer = () => {
     const {id} = useParams()
     const itemResultado = listaItems.find(item => item.id == id) //busca el objeto item en la base de datos
-    console.log(itemResultado)
     return (
         <div className="card itemDetailContainer">
             <div className="card-body">

@@ -5,7 +5,7 @@ import { ItemCount } from "../ItemCount/ItemCount"
 
 export const ItemDetail = (item) =>{
     const [producto, setProducto] = useState({imgUrl: placeholder, titulo: <span className="placeholder col-5"></span>, precio: <span className="placeholder col-2"></span>, developer: <span className="placeholder col-2"></span>, release: <span className="placeholder col-2"></span>}) // guarda un placeholder como estado inicial
-
+    const [quantity, setQuantity] = useState(0)
 
     const getItem = () =>{
         return new Promise((resolve, reject) =>{
@@ -13,6 +13,10 @@ export const ItemDetail = (item) =>{
                 resolve(item.producto)
             },3000)
         })
+    }
+
+    const onAdd = (quantityToAdd)=>{
+        setQuantity(quantityToAdd)
     }
     
 
@@ -37,7 +41,7 @@ export const ItemDetail = (item) =>{
                 <h5 className="card-title detailTitle placeholder-glow">{producto.titulo}</h5>
                 <p className="detailDescription placeholder-glow">{producto.titulo} es un videojuego desarrollado por {producto.developer} lanzado en el año {producto.release}</p>
                 <p className="card-text detailPrice placeholder-glow">${producto.precio}</p>
-                <ItemCount stock={producto.stock} initial={1} />
+                <ItemCount stock={producto.stock} initial={1} onAdd = {onAdd} />
             </div>
 
         </div>

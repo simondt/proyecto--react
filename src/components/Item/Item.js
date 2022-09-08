@@ -36,7 +36,6 @@ export const Item = (item) =>{
             <div className="card-body">
                 <Link to={`/item/${producto.id}`}><h5 className="card-title placeholder-glow">{producto.titulo}</h5></Link>
                 <p className="card-text placeholder-glow">${producto.precio}</p>
-                <ItemCount stock={producto.stock} initial={1} />
             </div>
         </div>
     ) // renderiza la card del item
