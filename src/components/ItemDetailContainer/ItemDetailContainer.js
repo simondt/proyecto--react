@@ -8,8 +8,8 @@ export const ItemDetailContainer = () => {
     const itemResultado = listaItems.find(item => item.id == id) //busca el objeto item en la base de datos
     console.log(itemResultado)
     return (
-        <div class="card itemDetailContainer">
-            <div class="card-body">
+        <div className="card itemDetailContainer">
+            <div className="card-body">
                 <ItemDetail producto = {itemResultado} />
             </div>
         </div >

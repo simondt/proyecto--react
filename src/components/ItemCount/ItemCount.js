@@ -12,10 +12,10 @@ export const ItemCount = (props) => {
 
     return (
         <div>
-            <button onClick={onRemove} type="button" class="btn btn-danger">-</button>
-            <button type="button" class="btn btn-light" disabled>{cont}</button>
-            <button onClick={onAdd} type="button" class="btn btn-success">+</button>
-            <button class="btn btn-primary">Agregar</button>
+            <button onClick={onRemove} type="button" className="btn btn-danger">-</button>
+            <button type="button" className="btn btn-light" disabled>{cont}</button>
+            <button onClick={onAdd} type="button" className="btn btn-success">+</button>
+            <button className="btn btn-primary">Agregar</button>
         </div>
     )
 

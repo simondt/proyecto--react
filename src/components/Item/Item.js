@@ -5,7 +5,7 @@ import placeholder from './placeholder.jpg'
 import {Link} from 'react-router-dom'
 
 export const Item = (item) =>{
-    const [producto, setProducto] = useState({imgUrl: placeholder, titulo: <span class="placeholder col-5"></span>, precio: <span class="placeholder col-2"></span>}) // guarda un placeholder como estado inicial
+    const [producto, setProducto] = useState({imgUrl: placeholder, titulo: <span className="placeholder col-5"></span>, precio: <span className="placeholder col-2"></span>}) // guarda un placeholder como estado inicial
 
     const getItem = () =>{
         return new Promise((resolve, reject) =>{
@@ -31,11 +31,11 @@ export const Item = (item) =>{
 
 
     return(
-        <div class="card" >
-            <Link to={`/item/${producto.id}`}><img src={producto.imgUrl} class="card-img-top" alt="..."></img></Link>
-            <div class="card-body">
-                <Link to={`/item/${producto.id}`}><h5 class="card-title placeholder-glow">{producto.titulo}</h5></Link>
-                <p class="card-text placeholder-glow">${producto.precio}</p>
+        <div className="card" >
+            <Link to={`/item/${producto.id}`}><img src={producto.imgUrl} className="card-img-top" alt="..."></img></Link>
+            <div className="card-body">
+                <Link to={`/item/${producto.id}`}><h5 className="card-title placeholder-glow">{producto.titulo}</h5></Link>
+                <p className="card-text placeholder-glow">${producto.precio}</p>
                 <ItemCount stock={producto.stock} initial={1} />
             </div>
         </div>
