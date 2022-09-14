@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import placeholder from '../Item/placeholder.jpg'
 import './ItemDetail.css'
 import { ItemCount } from "../ItemCount/ItemCount"
+import { CartContext } from "../../context/CartContext"
+import { Cart } from "../Cart/Cart"
 
 export const ItemDetail = (item) =>{
     const [producto, setProducto] = useState({imgUrl: placeholder, titulo: <span className="placeholder col-5"></span>, precio: <span className="placeholder col-2"></span>, developer: <span className="placeholder col-2"></span>, release: <span className="placeholder col-2"></span>}) // guarda un placeholder como estado inicial
-    const [quantity, setQuantity] = useState(0)
+
+    const {addItem} = useContext(CartContext)
 
     const getItem = () =>{
         return new Promise((resolve, reject) =>{
@@ -16,7 +19,8 @@ export const ItemDetail = (item) =>{
     }
 
     const onAdd = (quantityToAdd)=>{
-        setQuantity(quantityToAdd)
+        const newProduct={...item.producto, quantity: quantityToAdd}
+        addItem(newProduct)
     }
     
 

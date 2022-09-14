@@ -1,0 +1,11 @@
+.carrito{
+    text-align: center;
+}
+
+.cartList {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
