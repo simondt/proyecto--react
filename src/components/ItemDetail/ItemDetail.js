@@ -13,15 +13,6 @@ export const ItemDetail = (item) => {
 
     const { addItem } = useContext(CartContext)
 
-    const getItem = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(item.producto)
-                setLoading(false)
-            }, 2000)
-        })
-    }
-
     const onAdd = (quantityToAdd) => {
         const newProduct = { ...item.producto, quantity: quantityToAdd }
         addItem(newProduct)
@@ -30,16 +21,13 @@ export const ItemDetail = (item) => {
 
 
     useEffect(() => {
-        const funcionAsincronica = async () => {
-            try {
-                const producto = await getItem()
-                setProducto(producto)
-            } catch (error) {
-                console.log('error')
-            }
+        try {
+            setProducto(item.producto)
+            setLoading(false)
+        } catch (error) {
+            console.log('error')
         }
-        funcionAsincronica()
-    }, []) // ejecuta una funcion asincronica que verifica la promesa de un item
+    }, [item])
 
 
 
