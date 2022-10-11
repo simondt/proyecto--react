@@ -1,12 +1,13 @@
 import CartWidget from '../CartWidget/CartWidget'
 import {Link} from 'react-router-dom'
+import './NavBar.css'
 
 function Nav() {
     return (
         <header>
             <nav className="navbar navbar-expand-lg bg-dark">
                 <div className="container-fluid">
-                    <Link to='/' className="navbar-brand text-light">TiendaOnline</Link>
+                    <Link to='/' className="navbar-brand text-light titulo">Game center</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

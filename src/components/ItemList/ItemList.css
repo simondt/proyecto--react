@@ -1,7 +1,14 @@
 
 .gameList{
+    justify-content: center;
     list-style-type: none;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 15px;
+    text-decoration: none;
+}
+
+.alink{
+    text-decoration: none;
 }

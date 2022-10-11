@@ -1,14 +1,11 @@
 import { useContext, useEffect, useState } from "react"
-import placeholder from '../Item/placeholder.jpg'
 import './ItemDetail.css'
 import { ItemCount } from "../ItemCount/ItemCount"
 import { CartContext } from "../../context/CartContext"
-import { Cart } from "../Cart/Cart"
 import { Link } from "react-router-dom"
 
 export const ItemDetail = (item) => {
-    const [producto, setProducto] = useState([]) // guarda un placeholder como estado inicial
-    const [loading, setLoading] = useState(true)
+    const [producto, setProducto] = useState([])
     const [promptCarrito, setPromptCarrito] = useState(false)
 
     const { addItem } = useContext(CartContext)
@@ -23,7 +20,6 @@ export const ItemDetail = (item) => {
     useEffect(() => {
         try {
             setProducto(item.producto)
-            setLoading(false)
         } catch (error) {
             console.log('error')
         }
@@ -33,28 +29,17 @@ export const ItemDetail = (item) => {
 
     return (
         <div className="itemDetail" >
-            {loading ?
-                <>
-                    <div><img src={placeholder} className="card-img-top" alt="..."></img></div>
-                    <div className="detailText">
-                        <h5 className="card-title detailTitle placeholder-glow"><span className="placeholder col-5"></span></h5>
-                        <p className="detailDescription placeholder-glow"><span className="placeholder col-6"></span></p>
-                        <p className="card-text detailPrice placeholder-glow"><span className="placeholder col-5"></span></p>
-                        <span className="placeholder col-5"></span>
-                    </div>
-                </>
-                :
-                <>
-                    <div><img src={producto.imgUrl} className="card-img-top" alt="..."></img></div>
-                    <div className="detailText">
-                        <h5 className="card-title detailTitle ">{producto.titulo}</h5>
-                        <p className="detailDescription">{producto.titulo} es un videojuego desarrollado por {producto.developer} lanzado en el año {producto.release}</p>
-                        <p className="card-text detailPrice">${producto.precio}</p>
-                        <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />
-                        <Link to='/cart' className={`${promptCarrito ? null : 'invisible'}`}><button className="btn btn-dark promptCarrito">Realizar Compra</button></Link>
-                    </div>
-                </>
-            }
+            <>
+                <div><img src={producto.imgUrl} className="card-img-top" alt="..."></img></div>
+                <div className="detailText">
+                    <h5 className="card-title detailTitle ">{producto.titulo}</h5>
+                    <p className="detailDescription">{producto.developer}</p>
+                    <p className="detailDescription"><i className="bi bi-calendar"></i> {producto.release}</p>
+                    <p className="card-text detailPrice">${producto.precio}</p>
+                    <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />
+                    <Link to='/cart' className={`${promptCarrito ? null : 'invisible'}`}><button className="promptCarrito">Comprar</button></Link>
+                </div>
+            </>
         </div>
     ) // renderiza la card del item
 

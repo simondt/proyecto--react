@@ -22,5 +22,12 @@
 }
 
 .promptCarrito{
-    margin-top: 5px;
+    margin-top: 15px;
+    background: #00bea4;
+    color: white;
+    height: 50px;
+    width: 150px;
+    font-weight: bold;
+    border: none;
+    box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.43);
 }

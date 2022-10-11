@@ -1,5 +1,10 @@
 .carrito{
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 15px;
+    gap: 25px;
 }
 
 .cartList {
@@ -8,4 +13,39 @@
     flex-direction: column;
     gap: 15px;
     align-items: center;
+}
+
+.cartCard{
+    width: 400px;
+    text-align: left;
+}
+
+.cartCardBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.borrar{
+    border: none;
+}
+
+.orden{
+    margin-top: 5px;
+}
+
+.confOrden{
+    background-color: #00bea4;
+    color: white;
+    font-weight: bold;
+}
+
+.limpiar{
+    border: none;
+    background-color: white;
+    transition: all .3s;
+}
+.limpiar:hover{
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+
 }

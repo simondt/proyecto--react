@@ -1,0 +1,30 @@
+.opciones{
+    display: flex;
+    flex-direction: row;
+}
+
+.agregar{
+    background: #DB0000;
+    color: white;
+    height: 50px;
+    width: 150px;
+    font-weight: bold;
+    border: none;
+    box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.43);
+
+
+}
+
+.modCantidad{
+    display: flex;
+    flex-direction: row;
+}
+
+.btnMod{
+    background: none;
+    color: black;
+    border: none;
+    margin-left: 5px;
+
+    
+}

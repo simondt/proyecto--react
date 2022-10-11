@@ -4,7 +4,7 @@ import { CartContext } from '../../context/CartContext';
 import './Cart.css'
 import { Link } from 'react-router-dom';
 import { db } from '../../utils/firebase';
-import { collection, addDoc , Timestamp } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 export const Cart = () => {
     const { listaCarrito, removeItem, clear, getTotalPrice } = useContext(CartContext)
@@ -28,30 +28,40 @@ export const Cart = () => {
     }
 
     return (
-        <div className="carrito">
-            <ul className='cartList'>
-                {listaCarrito.length ?
-                    <>
-                        <button className='btn btn-danger' onClick={() => clear()}>Limpiar carrito</button>
+        <>
+            {listaCarrito.length ?
+                <div className="carrito">
+                    <ul className='cartList'>
                         {listaCarrito.map(item => (
                             <li key={item.id}>
-                                <div className="card" >
-                                    <img src={item.imgUrl} className="card-img-top" alt="..."></img>
-                                    <div className="card-body">
-                                        <h5 className="card-title">{item.titulo}</h5>
-                                        <p className="card-text">Cantidad: {item.quantity}</p>
-                                        <p className="card-text">Total: ${item.precio * item.quantity}</p>
-                                        <button className='btn btn-danger' onClick={() => removeItem(item.id)}>Quitar del carrito</button>
+                                <div className="card cartCard mb-1">
+                                    <div className="row g-0">
+                                        <div className="col-md-6">
+                                            <img src={item.imgUrl} className="img-fluid rounded-start" alt="..."></img>
+                                        </div>
+                                        <div className="col-md-6 cartCardBody">
+                                            <div className="card-body">
+                                                <h5 className="card-title">{item.titulo}</h5>
+                                                <p className="card-text">Cantidad: {item.quantity}</p>
+                                                <p className="card-text">Total: ${item.precio * item.quantity}</p>
+                                            </div>
+                                            <button className='borrar' onClick={() => removeItem(item.id)}><i className="bi bi-x"></i></button>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
                         ))}
-                        {idOrder && <div className="card">
-                            <div className="card-body">
-                                Orden realizada! ID: {idOrder}
+                        <div>
+                        <button className='limpiar' onClick={() => clear()}>Limpiar carrito</button>
+                        </div>
+                    </ul>
+                    <div>
+                        {idOrder && <div className="card text-light">
+                            <div className="card-body confOrden">
+                                Pedido realizado. ID: {idOrder}
                             </div>
                         </div>}
-                        <form onSubmit={sendOrder}>
+                        <form className='orden' onSubmit={sendOrder}>
                             <div className="mb-3">
                                 <input type="text" className="form-control" id="exampleInputName1" placeholder='Nombre' />
                             </div>
@@ -62,17 +72,18 @@ export const Cart = () => {
                                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Email' />
                                 <div id="emailHelp" className="form-text">No vamos a compartir tus datos con nadie.</div>
                             </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                            <button type="submit" className="btn btn-primary">Realizar pedido</button>
                         </form>
-                    </>
-                    :
-                    <>
-                        <p>El carrito se encuentra vacío</p>
-                        <Link to='/'><button className='btn btn-dark'>Volver al inicio </button></Link>
-                    </>
+                    </div>
+                </div>
+                :
+                <>
+                    <p>El carrito se encuentra vacío</p>
+                    <Link to='/'><button className='btn btn-dark'>Volver al inicio </button></Link>
+                </>
 
-                }
-            </ul>
-        </div>
+            }
+
+        </>
     )
 }

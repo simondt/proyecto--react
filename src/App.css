@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&family=Source+Sans+Pro&display=swap');
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+body{
+  background-color: #eee !important;
 }
